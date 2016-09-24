@@ -1,5 +1,41 @@
+body {
+	background-color: lightgrey;
+	font: 14px sans-serif;
+	margin: 0 auto 0 auto;
+	width: 960px;
+}
+
+header {
+	font: italic 18px sans-serif;	
+}
+
+header h1 {
+	margin: 10px 0 0 10px;
+}
+
 #content {
-	border-style: solid;
-	border-width: 1px;
-	width: 300px;
+	border: 1px solid;
+	float: left;
+	height: 250px;
+	margin: 5px 0 0 10px;
+	padding: 5px 0 0 3px;
+	width: 400px;
+}
+
+#sidebar {
+	border: 1px solid;
+	width: 100px;
+	float: left;
+	margin: 5px 0 0 10px;
+	padding: 5px 0 0 3px;
+}
+
+ul {
+	list-style-type: none;
+}
+
+footer {
+	clear: both; 
+	margin: 0 0 0 10px;
+	padding: 10px 0 0 0; 
 }
