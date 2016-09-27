@@ -105,3 +105,9 @@ local.properties
 /.idea/libraries
 .DS_Store
 /build
+
+##################
+# Sublime
+#################
+*.sublime-workspace
+*.sublime-project

@@ -5,7 +5,7 @@
 		[
 			[
 				"di",
-				"div	Tag"
+				"div\tTag"
 			],
 			[
 				"font",
@@ -53,11 +53,11 @@
 			],
 			[
 				"scr",
-				"script	Tag"
+				"script\tTag"
 			],
 			[
 				"sc",
-				"script	Tag"
+				"script\tTag"
 			],
 			[
 				"handl",
@@ -88,27 +88,22 @@
 	"buffers":
 	[
 		{
-			"file": "lab-1/1.2-calculator/index.html",
+			"file": "/home/alex/Dropbox/Cheat sheets/docker_commands.txt",
 			"settings":
 			{
-				"buffer_size": 1409,
-				"line_ending": "Unix"
+				"buffer_size": 1700,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "lab-1/1.1-page_fragment/index.html",
+			"file": "/home/alex/Dropbox/DIT/Year 4/Semester 1/Advanced Databases/Labs/lab-2/storage",
 			"settings":
 			{
-				"buffer_size": 831,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "lab-1/1.2-calculator/css/style.css",
-			"settings":
-			{
-				"buffer_size": 518,
-				"line_ending": "Unix"
+				"buffer_size": 380,
+				"encoding": "UTF-8",
+				"line_ending": "Unix",
+				"name": "not_normalized:"
 			}
 		}
 	],
@@ -153,7 +148,6 @@
 	},
 	"expanded_folders":
 	[
-		"/home/alex/Coding/RichWeb",
 		"/home/alex/Coding/RichWeb/lab-1",
 		"/home/alex/Coding/RichWeb/lab-1/1.1-page_fragment",
 		"/home/alex/Coding/RichWeb/lab-1/1.2-calculator",
@@ -165,6 +159,16 @@
 	],
 	"file_history":
 	[
+		"/home/alex/Dropbox/DIT/Year 4/Semester 1/Advanced Databases/Labs/lab-1/sql/lab1-part2-erd2.sql",
+		"/home/alex/Dropbox/DIT/Year 4/Semester 1/Advanced Databases/Labs/lab-2/apps.sql",
+		"/home/alex/Coding/RichWeb/lab-1/1.3-checkout-page/css/style.css",
+		"/home/alex/Coding/RichWeb/lab-1/1.3-checkout-page/index.html",
+		"/home/alex/Dropbox/Cheat sheets/linux_commands.txt",
+		"/home/alex/Coding/RichWeb/lab-1/1.2-calculator/index.html",
+		"/home/alex/Coding/RichWeb/lab-1/1.2-calculator/css/style.css",
+		"/home/alex/Coding/RichWeb/lab-1/1.1-page_fragment/css/style.css",
+		"/home/alex/Coding/RichWeb/lab-1/1.1-page_fragment/index.html",
+		"/home/alex/Coding/RichWeb/lab-1/1.1-page_fragment/jsbin.dahuca.css",
 		"/home/alex/Coding/RichWeb/lab-1/1.4-css/index.html",
 		"/home/alex/Coding/RichWeb/lab-1/1.2-calculator/calc2/calc2.css",
 		"/home/alex/Coding/RichWeb/lab-1/1.2-calculator/calc2/calc2.html",
@@ -173,10 +177,7 @@
 		"/home/alex/Dropbox/DIT/Year 4/Semester 1/Advanced Databases/Labs/lab-1/lab1-part2-erd5.sql",
 		"/home/alex/Junk/form.html",
 		"/home/alex/Coding/RichWeb/lab-1/1.4-css/css/style.css",
-		"/home/alex/Coding/RichWeb/lab-1/1.3-checkout-page/css/style.css",
-		"/home/alex/Coding/RichWeb/lab-1/1.3-checkout-page/index.html",
 		"/home/alex/Coding/Cryptography/lab-2/solutions.txt",
-		"/home/alex/Dropbox/Cheat sheets/linux_commands.txt",
 		"/home/alex/Dropbox/Cheat sheets/docker_commands.txt",
 		"/home/alex/Dropbox/DIT/Year 4/Semester 1/Advanced Databases/oracle-xe-install.txt",
 		"/home/alex/Coding/Cryptography/lab-2/vigenere-crack.txt",
@@ -240,7 +241,7 @@
 	],
 	"find":
 	{
-		"height": 23.0
+		"height": 34.0
 	},
 	"find_in_files":
 	{
@@ -277,65 +278,36 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "lab-1/1.2-calculator/index.html",
+					"file": "/home/alex/Dropbox/Cheat sheets/docker_commands.txt",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1409,
+						"buffer_size": 1700,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1409,
-								1409
+								623,
+								623
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 300.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "lab-1/1.1-page_fragment/index.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 831,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
 					"type": "text"
 				}
 			]
@@ -345,33 +317,32 @@
 			"sheets":
 			[
 				{
-					"buffer": 2,
-					"file": "lab-1/1.2-calculator/css/style.css",
-					"semi_transient": true,
+					"buffer": 1,
+					"file": "/home/alex/Dropbox/DIT/Year 4/Semester 1/Advanced Databases/Labs/lab-2/storage",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 518,
+						"buffer_size": 380,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								380,
+								380
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/CSS/CSS.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"auto_name": "not_normalized:",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
@@ -405,7 +376,7 @@
 		"cols":
 		[
 			0.0,
-			0.661140197789,
+			0.410994764397,
 			1.0
 		],
 		"rows":
@@ -457,7 +428,7 @@
 		],
 		"width": 0.0
 	},
-	"selected_group": 0,
+	"selected_group": 1,
 	"settings":
 	{
 	},
