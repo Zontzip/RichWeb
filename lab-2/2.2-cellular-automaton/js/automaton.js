@@ -1,18 +1,59 @@
 // Create initial nodes
-for(let row = 0; row < 101; row++) {
+var row = document.createElement("div");
+row.id = "row1";
+document.body.appendChild(row);
+
+// Create first row
+for(let i = 0; i < 101; i++) {
 	var state = parseInt(Math.random() * 2) ?  true : false;
 	var cell = createCell(state);
-	cell.id = "initial_node";
-	document.body.appendChild(cell);
+	cell.className = "cell-row1";
+	row.appendChild(cell);
 }
 
+for (let i = 2; i < 52; i++) {
+	// Create current row div
+	var newRow = document.createElement("div");
+	var currentRowStr = i;
+	newRowStr = "row" + currentRowStr.toString();
+	newRow.id = newRowStr;
 
-for (let row = 0; row < 101; row++) {
-	let parent = document.getElementsByClassName("initial_nodes")[row];
-	if (parent.style.backgroundColor = "black") {
-		parent.appendChild(createCell(true));
-	} else {
-		parent.appendChild(createCell(false));
+	// Fetch previous row and add new row as child
+	var lastRow = i-1;
+	parentRowStr = "row" + lastRow.toString();
+	var parentRow = document.getElementById(parentRowStr);
+	document.body.appendChild(newRow);
+
+	parentColsStr = "cell-row" + lastRow.toString(); 
+	var parent = document.getElementsByClassName(parentColsStr);
+
+	for (let j = 0; j < 101; j++) {
+		if (j === 0) {
+			var cell = createCell(true);
+		} else if (j === 100) {
+			var cell = createCell(true);
+		} else {
+			if (parent[j].previousSibling.title === "active" && parent[j].title === "active" && parent[j].nextSibling.title === "active") {
+				var cell = createCell(true);
+			} else if (parent[j].previousSibling.title === "active" && parent[j].title === "active" && parent[j].nextSibling.title === "inactive") {
+				var cell = createCell(false);
+			} else if (parent[j].previousSibling.title === "active" && parent[j].title === "inactive" && parent[j].nextSibling.title === "active") {
+				var cell = createCell(true);
+			} else if (parent[j].previousSibling.title === "active" && parent[j].title === "inactive" && parent[j].nextSibling.title === "inactive") {
+				var cell = createCell(true);
+			} else if (parent[j].previousSibling.title === "inactive" && parent[j].title === "active" && parent[j].nextSibling.title === "active") {
+				var cell = createCell(false);
+			} else if (parent[j].previousSibling.title === "inactive" && parent[j].title === "active" && parent[j].nextSibling.title === "inactive") {
+				var cell = createCell(true);
+			} else if (parent[j].previousSibling.title === "inactive" && parent[j].title === "inactive" && parent[j].nextSibling.title === "active") {
+				var cell = createCell(true);
+			} else if (parent[j].previousSibling.title === "inactive" && parent[j].title === "inactive" && parent[j].nextSibling.title === "inactive") {
+				var cell = createCell(false);
+			} 
+		}
+		cellRowStr = "cell-" + newRowStr;
+		cell.className = cellRowStr;
+		newRow.appendChild(cell);
 	}
 }
 
@@ -24,8 +65,10 @@ function createCell(state) {
 	cell.style.float = "left";
 	if (state === true) {
 		cell.style.backgroundColor = "black";
+		cell.title = "active";
 	} else {
 		cell.style.backgroundColor = "white";
+		cell.title = "inactive";
 	}
 	return cell;
 }
