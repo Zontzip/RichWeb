@@ -1,9 +1,15 @@
-// Create initial nodes
+// Create container
+var container = document.createElement("div");
+container.id = "container";
+container.style.width = "1010px";
+document.body.appendChild(container);
+
+// Create first row 
 var row = document.createElement("div");
 row.id = "row1";
-document.body.appendChild(row);
+container.appendChild(row);
 
-// Create first row
+// Create initial nodes
 for(let i = 0; i < 101; i++) {
 	var state = parseInt(Math.random() * 2) ?  true : false;
 	var cell = createCell(state);
@@ -22,7 +28,7 @@ for (let i = 2; i < 52; i++) {
 	var lastRow = i-1;
 	parentRowStr = "row" + lastRow.toString();
 	var parentRow = document.getElementById(parentRowStr);
-	document.body.appendChild(newRow);
+	container.appendChild(newRow);
 
 	parentColsStr = "cell-row" + lastRow.toString(); 
 	var parent = document.getElementsByClassName(parentColsStr);
