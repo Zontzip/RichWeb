@@ -1,7 +1,63 @@
-root = "http://jsonplaceholder.typicode.com/"
-userpath = "users";
+function fetch(url, options) {
+  return new Promise(function(resolve, reject) {
 
-// A promise is returned
-const whenCatLoaded = fetch('cat.jpg', options);
- 
-// Use XMLHttpRequest with promises!!!
+  	// Get the http method before opening connection
+    var httpMethod = '';
+    if ('method' in options) {
+      httpMethod = options.method;
+    } else {
+      httpMethod = 'GET';
+    }
+    
+    var req = new XMLHttpRequest();
+    req.open(options.method, url);
+    
+    if ('headers' in options) {
+      options.headers.forEach(function(header) {
+        req.setRequestHeader(header.name, header.value);
+      });
+    }
+
+    req.onload = function() {
+      if (req.status == 200) {
+        resolve(req.response);
+      } else {
+        reject(Error(req.statusText));
+      }
+    };
+
+    // Default OK, returns HTTP status
+    req.onerror = function() {
+      reject(Error(req.statusText));
+    };
+
+    // Send request
+    req.send();
+  });
+}
+
+root = "http://jsonplaceholder.typicode.com/";
+userPath = "users";
+todoPath = "todos";
+
+var options = {
+  method : 'GET',
+  headers:[
+    {name: "From", value: "C13451458@mydit.com"},
+    {name: "Content-Type", value: "application/json"}
+  ]
+ };
+
+// Make fetch
+fetch(root + todoPath, options).then(function(data) {
+  var json = JSON.parse(data);
+  console.log(countUser10(json));
+}, function(err) {
+  console.log(err.status);
+});
+
+function countUser10(json){
+  return json.filter(function (user){
+    return user.userId === 10;
+  }).length
+}
