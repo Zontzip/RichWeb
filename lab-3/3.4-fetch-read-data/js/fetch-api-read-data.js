@@ -51,6 +51,14 @@ var options = {
 // Make fetch
 fetch(root + todoPath, options).then(function(data) {
   var json = JSON.parse(data);
+  let todosCount = getUserTodos(json, 10).length;
+  console.log(todosCount);
 }, function(err) {
   console.log(err.status);
 });
+
+function getUserTodos(json, id) {
+  return json.filter(function(user) {
+    return user.userId === id;
+  });
+}
