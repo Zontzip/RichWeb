@@ -26,58 +26,32 @@ function fetch(url, options) {
       }
     };
 
+    // Returns HTTP status, Default OK, 
+    xhr.onerror = function() {
+      reject(Error(xhr.statusText));
+    };
+
     // Send request
     xhr.send();
   });
 }
 
-root = "http://jsonplaceholder.typicode.com/";
-userPath = "users";
+root = "http://www.example.com/";
 todoPath = "todos";
 
 var options = {
   method : 'GET',
   headers:[
     {name: "From", value: "C13451458@mydit.com"},
-    {name: "Content-Type", value: "application/json"}
+    {name: "Content-Type", value: "application/json"},
+    {name: "Access-Control-Allow-Origin", value: "*"}
   ]
  };
 
 // Make fetch
 fetch(root + todoPath, options).then(function(data) {
   var json = JSON.parse(data);
-  console.log(getUserTodos(json, 10).length);
-  console.log(getTodosDesc(json))
 }, function(err) {
-  console.log(err.status);
+  //console.log(err);
+  console.log("The request has failed: ", err);
 });
-
-function getUserTodos(json, id) {
-  return json.filter(function(user) {
-    return user.userId === id;
-  });
-}
-
-function getTodosDesc(json) {
-  var unCompleted = [];
-  var total = 0;
-  var userId = 0;
-  
-  json
-  .filter(function(user) {
-    return user.completed === false;
-  })
-  .reduce(function(previous, current) {
-    if (previous.userId == current.userId){
-      total = total + 1;
-      userId = current.userId;
-      return (previous, current);
-    } else {
-      unCompleted.push({userId: userId, total: total});
-      total = 0;
-      return (previous, current);
-    }
-  })
-
-  return unCompleted.sort();
-}

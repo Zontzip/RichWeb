@@ -9,30 +9,25 @@ function fetch(url, options) {
       httpMethod = 'GET';
     }
     
-    var req = new XMLHttpRequest();
-    req.open(options.method, url);
+    var xhr = new XMLHttpRequest();
+    xhr.open(options.method, url);
     
     if ('headers' in options) {
       options.headers.forEach(function(header) {
-        req.setRequestHeader(header.name, header.value);
+        xhr.setRequestHeader(header.name, header.value);
       });
     }
 
-    req.onload = function() {
-      if (req.status == 200) {
-        resolve(req.response);
+    xhr.onload = function() {
+      if (xhr.status == 200) {
+        resolve(xhr.response);
       } else {
-        reject(Error(req.statusText));
+        reject(Error(xhr.statusText));
       }
     };
 
-    // Default OK, returns HTTP status
-    req.onerror = function() {
-      reject(Error(req.statusText));
-    };
-
     // Send request
-    req.send();
+    xhr.send();
   });
 }
 
@@ -51,6 +46,7 @@ var options = {
 // Make fetch
 fetch(root + todoPath, options).then(function(data) {
   var json = JSON.parse(data);
+  console.log(json);
 }, function(err) {
-  console.log(err.status);
+  console.log(err);
 });
