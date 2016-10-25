@@ -46,8 +46,9 @@ var options = {
 // Make fetch
 fetch(root + todoPath, options).then(function(data) {
   var json = JSON.parse(data);
-  console.log(getUserTodos(json, 10).length);
+  //console.log(getUserTodos(json, 10).length);
   console.log(getTodosDesc(json));
+  //console.log(orderUnCompleted(json));
 }, function(err) {
   console.log(err.status);
 });
@@ -59,25 +60,11 @@ function getUserTodos(json, id) {
 }
 
 function getTodosDesc(json) {
-  var unCompleted = [];
-  var total = 0;
-  var userId = 0;
-  
-  json
+  return users = json
   .filter(function(user) {
     return user.completed === false;
   })
-  .reduce(function(previous, current) {
-    if (previous.userId == current.userId){
-      total = total + 1;
-      userId = current.userId;
-      return (previous, current);
-    } else {
-      unCompleted.push({userId: userId, total: total});
-      total = 0;
-      return (previous, current);
-    }
-  });
+  .map(function(user) {
 
-  return unCompleted.sort();
+  });
 }
