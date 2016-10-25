@@ -48,7 +48,6 @@ fetch(root + todoPath, options).then(function(data) {
   var json = JSON.parse(data);
   //console.log(getUserTodos(json, 10).length);
   console.log(getTodosDesc(json));
-  //console.log(orderUnCompleted(json));
 }, function(err) {
   console.log(err.status);
 });
@@ -60,11 +59,16 @@ function getUserTodos(json, id) {
 }
 
 function getTodosDesc(json) {
-  return users = json
+  todosDesc = json
   .filter(function(user) {
     return user.completed === false;
   })
-  .map(function(user) {
-
-  });
+  .reduce(function(count, user) {
+    // Get the current id and check if it is in the count array, if so add 1
+    var id = (user.userId);
+    count[id] = count.hasOwnProperty(id) ? count[id] + 1 : 1;
+    return count;
+  }, {});
+  //.sort(function(a,b) { return parseFloat(a.userId) - parseFloat(b.userId) } );
+  return todosDesc;
 }
