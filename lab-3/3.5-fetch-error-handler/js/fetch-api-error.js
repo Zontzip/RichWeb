@@ -26,6 +26,23 @@ function fetch(url, options) {
       }
     };
 
+    xhr.onreadystatechange = function(e) {
+      if (this.readyState === 4 && this.status === 200) {
+        try {
+          console.log('good');
+        }
+        catch (error) {
+          alert("There has been an error");
+          console.log(error);
+          return false;
+        }
+        callback();
+      }
+      else if (this.readyState === 4 && this.status !== 200) {
+         console.log('There has been an error');
+      }
+    };
+
     // Returns HTTP status, Default OK, 
     xhr.onerror = function() {
       reject(Error(xhr.statusText));
@@ -53,5 +70,5 @@ fetch(root + todoPath, options).then(function(data) {
   var json = JSON.parse(data);
 }, function(err) {
   //console.log(err);
-  console.log("The request has failed: ", err);
+  console.log("The request has failed!");
 });

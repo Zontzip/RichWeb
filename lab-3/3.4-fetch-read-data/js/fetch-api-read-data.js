@@ -47,7 +47,7 @@ var options = {
 fetch(root + todoPath, options).then(function(data) {
   var json = JSON.parse(data);
   console.log(getUserTodos(json, 10).length);
-  console.log(getTodosDesc(json))
+  console.log(getTodosDesc(json));
 }, function(err) {
   console.log(err.status);
 });
@@ -77,7 +77,7 @@ function getTodosDesc(json) {
       total = 0;
       return (previous, current);
     }
-  })
+  });
 
   return unCompleted.sort();
 }
