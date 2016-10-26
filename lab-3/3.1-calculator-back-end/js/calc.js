@@ -12,22 +12,22 @@ function Compute(btnValue) {
   if(btnValue == "C") {
       screen.value = '';
     } 
-    else if(btnValue == "=") {
-      var equation = screenValue;
+  else if(btnValue == "=") {
+    var equation = screenValue;
 
-      if (equation.includes("x")) {
-        equation = equation.replace(/x/g, "*");
-      }
-
-      if (equation.includes("÷")) {
-        equation = equation.replace(/÷/g, "/");
-      }
-
-      screen.value = eval(equation);
+    if (equation.includes("x")) {
+      equation = equation.replace(/x/g, "*");
     }
-    else {
-      screen.value += btnValue;
+
+    if (equation.includes("÷")) {
+      equation = equation.replace(/÷/g, "/");
     }
+
+    screen.value = eval(equation);
+  }
+  else {
+    screen.value += btnValue;
+  }
 }
 
 // Add on click events

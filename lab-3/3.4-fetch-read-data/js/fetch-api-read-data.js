@@ -46,8 +46,9 @@ var options = {
 // Make fetch
 fetch(root + todoPath, options).then(function(data) {
   var json = JSON.parse(data);
-  //console.log(getUserTodos(json, 10).length);
+  console.log(getUserTodos(json, 10));
   console.log(getTodosDesc(json));
+  
 }, function(err) {
   console.log(err.status);
 });
@@ -55,11 +56,11 @@ fetch(root + todoPath, options).then(function(data) {
 function getUserTodos(json, id) {
   return json.filter(function(user) {
     return user.userId === id;
-  });
+  }).length;
 }
 
 function getTodosDesc(json) {
-  todosDesc = json
+  todos = json
   .filter(function(user) {
     return user.completed === false;
   })
@@ -69,6 +70,16 @@ function getTodosDesc(json) {
     count[id] = count.hasOwnProperty(id) ? count[id] + 1 : 1;
     return count;
   }, {});
-  //.sort(function(a,b) { return parseFloat(a.userId) - parseFloat(b.userId) } );
-  return todosDesc;
+
+  // Map object to array
+  var desc = Object.keys(todos).map(function(key) { 
+    return {userid: key, total: todos[key]}; 
+  });
+
+  // Simple sort desc then reverse
+  var desc = desc.sort(function(a,b) { 
+    return parseFloat(a.total) - parseFloat(b.total) 
+  }).reverse();
+
+  return desc;
 }
