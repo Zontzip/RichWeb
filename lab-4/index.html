@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>User Profile</title>
+	<!-- Add random string to fix chrome css cache bug -->
+	<link rel="stylesheet" type="text/css" href="css/style.css?v={random number/string}">
+</head>
+<body>
+	<div id="body">
+		<div id="menu"> 
+			<input type="text" placeholder="Username">
+			<button type="submit">Search</button>
+		</div>
+		
+		<div id="profile-container">
+		<label for="profile-container">User Profile</label>
+			<div id="profile-image">
+				<img src="test.png" alt="profile_pic" height="150" width="150">
+			</div>
+			<ul>				
+				<li><div id="li-name">Name<div></li>
+				<li><div id="li-username">Username<div></li>
+				<li><div id="li-email">Email<div></li>
+				<li><div id="li-location">Location<div></li>
+				<li><div id="li-no-of-gists">Number of Gists<div></li>
+			</ul>
+		</div>
+		<div id="repo-container">
+			<label for="repo-container">User Repos</label>
+			<ul>
+				<li><div id="repo1" class="repo">Name<br>Description</div></li>
+				<li><div id="repo2" class="repo">Name<br>Description</div></li>
+				<li><div id="repo3" class="repo">Name<br>Description</div></li>
+				<li><div id="repo4" class="repo">Name<br>Description</div></li>
+				<li><div id="repo5" class="repo">Name<br>Description</div></li>
+				<li><div id="repo6" class="repo">Name<br>Description</div></li>
+			</ul>
+		</div>
+	</div>
+	<script src="js/git.js" type="text/javascript"></script>
+</body>
+</html>
