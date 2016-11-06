@@ -31,8 +31,8 @@ label {
 	float: left;
 }
 #profile-image {
-	width: 100%;
-	height: 30%;
+	width: 150px;
+	height: 150px;
 	border: 1px solid black;
 }
 ul {
