@@ -87,7 +87,6 @@ searchButton.onclick = function(e) {
     }, function(err) {
       //console.log(err);
       console.log("The request has failed!");
-      window.location = "error.html";
     });
   }
 
