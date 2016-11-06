@@ -52,8 +52,7 @@ function fetch(url, options) {
   });
 }
 
-const root = "https://api.github.com/users/";
-const testUser = "zontzip";
+const userURL = "https://api.github.com/users/";
 
 var options = {
   method : 'GET',
@@ -67,17 +66,46 @@ var searchButton = document.querySelector("button[type=submit]");
 
 searchButton.onclick = function(e) {
   let input = document.querySelector("input[type=text]").value;
+  var repoList = document.getElementById("ul-repos");
 
-  fetch(root + input, options).then(function(data) {
-    var json = JSON.parse(data);
+  // Clear child nodes of the repo list
+  while (repoList.firstChild) {
+    repoList.removeChild(repoList.firstChild);
+  }
+
+  fetch(userURL + input, options).then(function(data) {
+    let json = JSON.parse(data);
     document.getElementById("profile-image").src = json.avatar_url;
     document.getElementById("li-name").innerHTML = json.name;
     document.getElementById("li-username").innerHTML = json.login;
     document.getElementById("li-email").innerHTML = json.email;
     document.getElementById("li-location").innerHTML = json.location;
     document.getElementById("li-no-of-gists").innerHTML = json.public_gists;
+
+    let repoURL = json.repos_url;
+    getRepos(repoURL);
   }, function(err) {
     //console.log(err);
     console.log("The request has failed!");
   });
+
+  function getRepos(repoURL) {
+    fetch(repoURL, options).then(function(data) {
+      var json = JSON.parse(data);
+
+      for (let i = 0; i < 6; i++) {
+        addRepoRow(json[i].name, json[i].description)
+      }
+
+    }, function(err) {
+      //console.log(err);
+      console.log("The request has failed!");
+    });
+  }
+
+  function addRepoRow(name, description) {
+    let newRepoItem = document.createElement("li");
+    newRepoItem.innerHTML = name + "<br />" + description;
+    repoList.appendChild(newRepoItem);
+  }
 }
