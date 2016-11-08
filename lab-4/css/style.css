@@ -17,9 +17,12 @@ ul li {
 	padding: 2px 0 2px 5px;
 	text-align: left;
 }
+ul li div {
+	padding: 8px;
+}
 img {
-	width: 150px;
-	height: 150px;
+	width: 250px;
+	height: 250px;
 	display: block;
     margin: 0 auto;
 }
@@ -32,8 +35,9 @@ input[type=text] {
 	padding: 5px;
 }
 button[type="submit"] {
-	width: 100px;
+	width: 150px;
 	height: 30px;
+	float: right;
 }
 h2 {
 	font-size: 20px;

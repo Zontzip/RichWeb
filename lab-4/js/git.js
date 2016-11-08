@@ -99,8 +99,13 @@ function getRepos(repoURL) {
 
 function addRepoRow(name, description) {
     let newRepoItem = document.createElement("li");
-    newRepoItem.innerHTML = name + description;
+    let nameNode = document.createElement("div");
+    let descNode = document.createElement("div");
     repoList.appendChild(newRepoItem);
+    newRepoItem.appendChild(nameNode);
+    newRepoItem.appendChild(descNode);
+    nameNode.innerHTML = "Name: " + name;
+    descNode.innerHTML = "Description: " + description;
 }
 
 function setProfileImage(url) {
