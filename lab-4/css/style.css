@@ -1,4 +1,63 @@
 body {
 	font-family: Verdana;
+	max-width: 900px;
+  	margin: 0 auto;
+}
+header {
+	margin: 10px;
+}
+ul {
+	list-style: none;
+	margin: 0; 
+	padding: 0;
+}
+ul li {
+	border: 1px solid #DDDDDD;
+	height: 50px;
+	padding: 2px 0 2px 5px;
+	text-align: left;
+}
+img {
+	width: 150px;
+	height: 150px;
+	display: block;
+    margin: 0 auto;
+}
+input[type=text] {
+	outline: none;
+	border: 1px solid #DDDDDD;
+	width: 70%;
+	height: 20px;
+	margin-right: 40px;
+	padding: 5px;
+}
+button[type="submit"] {
+	width: 100px;
+	height: 30px;
+}
+h2 {
+	font-size: 20px;
 }
 
+#profile-image-container {
+	border: 1px solid #DDDDDD;
+}
+#ul-profile li div {
+	padding-top: 15px;
+}
+#ul-repos li {
+	height: 30%;
+}
+
+.flexbox-container {
+	display: flex;
+	flex-flow: row;
+ 	justify-content: center;
+}
+.flexbox-container > section:nth-child(1) {
+	width: 50%;
+	margin-right: 20px;
+}
+.flexbox-container > section:nth-child(2) {
+	width: 50%;
+}

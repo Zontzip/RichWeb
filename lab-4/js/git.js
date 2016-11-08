@@ -99,7 +99,7 @@ function getRepos(repoURL) {
 
 function addRepoRow(name, description) {
     let newRepoItem = document.createElement("li");
-    newRepoItem.innerHTML = name + "<br><br>" + description;
+    newRepoItem.innerHTML = name + description;
     repoList.appendChild(newRepoItem);
 }
 
@@ -107,17 +107,17 @@ function setProfileImage(url) {
   document.getElementById("profile-image").src = url;
 }
 function setProfileName(name) {
-  document.getElementById("li-name").innerHTML = name;
+  document.getElementById("li-name").innerHTML = "Name: " + name;
 }
 function setProfileUsername(username) {
-  document.getElementById("li-username").innerHTML = username;
+  document.getElementById("li-username").innerHTML = "Username: " + username;
 }
 function setProfileEmail(email) {
-  document.getElementById("li-email").innerHTML = email;
+  document.getElementById("li-email").innerHTML = "Email: " + email;
 }
 function setProfileLocation(location) {
-  document.getElementById("li-location").innerHTML = location;
+  document.getElementById("li-location").innerHTML = "Location: " + location;
 }
 function setProfileGists(public_gists) {
-  document.getElementById("li-no-of-gists").innerHTML = public_gists;
+  document.getElementById("li-no-of-gists").innerHTML = "Number of Gists: " + public_gists;
 }
