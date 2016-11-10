@@ -69,6 +69,6 @@ var options = {
 fetch(root + todoPath, options).then(function(data) {
   var json = JSON.parse(data);
 }, function(err) {
-  //console.log(err);
   console.log("The request has failed!");
+  window.location = "error.html";
 });
