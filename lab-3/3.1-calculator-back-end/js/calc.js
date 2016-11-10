@@ -9,24 +9,28 @@ const characters = ["(", ")", "±", "÷", "7",
 function Compute(btnValue) {
   var screenValue = screen.value;
 
-  if(btnValue == "C") {
-      screen.value = '';
-    } 
-  else if(btnValue == "=") {
-    var equation = screenValue;
+  try {
+    if(btnValue == "C") {
+        screen.value = '';
+      } 
+    else if(btnValue == "=") {
+      var equation = screenValue;
 
-    if (equation.includes("x")) {
-      equation = equation.replace(/x/g, "*");
+      if (equation.includes("x")) {
+        equation = equation.replace(/x/g, "*");
+      }
+
+      if (equation.includes("÷")) {
+        equation = equation.replace(/÷/g, "/");
+      }
+
+      screen.value = eval(equation);
     }
-
-    if (equation.includes("÷")) {
-      equation = equation.replace(/÷/g, "/");
+    else {
+      screen.value += btnValue;
     }
-
-    screen.value = eval(equation);
-  }
-  else {
-    screen.value += btnValue;
+  } catch(err) {
+    console.log("Error occured in the calculation: " + err);
   }
 }
 
