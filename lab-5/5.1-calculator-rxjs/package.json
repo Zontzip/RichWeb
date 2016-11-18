@@ -2,13 +2,16 @@
   "name": "5.1-calculator-rxjs",
   "version": "1.0.0",
   "description": "Calculator using js streams",
-  "main": "calc.js",
+  "main": "index.js",
   "scripts": {
-    "test": "npm test"
+    "build": "webpack",
+    "watch": "webpack --watch",
+    "start": "webpack-dev-server --watch --hot --inline"
   },
   "author": "Alex Kiernan",
   "license": "ISC",
   "dependencies": {
+    "rxjs": "^5.0.0-rc.3"
   },
   "devDependencies": {
     "babel-core": "^6.17.0",
@@ -18,11 +21,6 @@
     "copy-webpack-plugin": "^3.0.1",
     "webpack": "^1.13.2",
     "webpack-dev-server": "^1.16.1"
-  },
-  "scripts": {
-    "build": "webpack",
-    "watch": "webpack --watch",
-    "start": "webpack-dev-server --watch --hot --inline"
   },
   "babel": {
     "presets": [
