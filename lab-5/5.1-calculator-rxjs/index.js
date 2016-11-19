@@ -2,21 +2,17 @@ import {Observable} from 'rxjs/Rx';
 
 const buttons = document.querySelectorAll(".flex-item");
 const display = document.querySelector("input[type=text]");
-const incButton = document.getElementById("increment");
 
 let counter = {value: 0};
-/**
- * Observe for an event which is a click on the button.
- * $ denotes a stream value.
- */
-const inc$ = Observable.fromEvent(incButton, 'click');
 
-/**
- * Subscribe to the stream. This does something when an event arrives on the
- * stream.
- * Args: Takes a function callback containing the event using fat arrow
- * notation.
- */
-inc$.subscribe(ev => {
-  display.value = counter++;
+ const userInput$ = Observable.merge (
+   Observable.fromEvent(buttons, 'click'),
+   Observable.fromEvent(document, 'keyup')
+ )
+
+userInput$.scan((acc) => {
+    return {value: acc.value + 1}
+  }, counter)
+  .subscribe(counter => {
+    display.value = counter.value;
 });
