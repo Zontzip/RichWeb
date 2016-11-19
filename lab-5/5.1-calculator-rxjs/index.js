@@ -4,7 +4,7 @@ const buttons = document.querySelectorAll(".flex-item");
 const display = document.querySelector("input[type=text]");
 const incButton = document.getElementById("increment");
 
-let counter = 1;
+let counter = {value: 0};
 /**
  * Observe for an event which is a click on the button.
  * $ denotes a stream value.
@@ -18,5 +18,5 @@ const inc$ = Observable.fromEvent(incButton, 'click');
  * notation.
  */
 inc$.subscribe(ev => {
-  display.innerHTML = counter++;
+  display.value = counter++;
 });
