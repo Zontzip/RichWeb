@@ -1,5 +1,6 @@
 import {Observable} from 'rxjs/Rx';
 
+const calcValues = Array.from("0123456789+-x÷±.C=()");
 /**
  * Get key clicks.
  */
@@ -14,24 +15,37 @@ const expresion$ = Observable.merge (
 const display = document.querySelector("input[type=text]");
 const out$ = expresion$
   .scan((prev, curr) => {
-    if (curr === 'C') {
-      for(var i = 0; i < buttons.length; i++)
-          buttons[i].disabled = false;
-      return '';
-    }
-    else if (curr === '=') {
-      try {
-        return eval(prev);
-      } catch (err) {
-        return 'Error';
+    if(calcValues.includes(curr)) {
+      if (curr === 'C') {
+        for(var i = 0; i < buttons.length; i++)
+            buttons[i].disabled = false;
+        return '';
+      } else if (curr === '=') {
+        try {
+          return eval(prev);
+        } catch (err) {
+          return 'Error';
+        }
+      } else if(curr === '±') {
+        let plusIndex = prev.lastIndexOf('+') ;
+        let minusIndex = prev.lastIndexOf('-') ;
+
+        if (plusIndex > minusIndex) {
+          prev = prev.substr(0, plusIndex) + '-' + prev.substr(plusIndex + 1);
+        } else {
+          prev = prev.substr(0, minusIndex) + '+' + prev.substr(minusIndex + 1);
+        }
+        return prev;
       }
-    }
-    else {
-      if (curr === 'x')
-        curr = curr.replace(/x/g, "*");
-      else if (curr === '÷')
-        curr = curr.replace(/÷/g, "/");
-      return prev+curr;
+      else {
+        if (curr === 'x')
+          curr = curr.replace(/x/g, "*");
+        else if (curr === '÷')
+          curr = curr.replace(/÷/g, "/");
+        return prev+curr;
+      }
+    } else {
+      return prev;
     }
   });
 
