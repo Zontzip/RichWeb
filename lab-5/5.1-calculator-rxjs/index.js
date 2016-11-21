@@ -1,6 +1,6 @@
 import {Observable} from 'rxjs/Rx';
 
-const calcValues = Array.from("0123456789+-x÷±.C=()");
+const calcValues = Array.from("0123456789+-x÷±.C=()/");
 /**
  * Get key clicks.
  */
