@@ -7,30 +7,45 @@ const stopBtn = document.getElementById("stop");
 const splitBtn = document.getElementById("split");
 const resetBtn = document.getElementById("reset");
 
-// Clock stuff
-const start = (acc) => {return {value: acc.value + 1, state: true}}
-const stop = (acc) => {return {state: false}}
-const split = (acc) => {return {}}
-const reset = (acc) => {return {value: 0, state: false}}
-const incr = (acc) => {return {value: acc.value + 1}}
+var counter = {m: 0, s: 0, ms: 0, state: false};
 
-const timer = Observable.interval(1000);
-let counter = {value: 0, state: false};
+function start() {
+  console.log('Start');
+  counter.state = true;
+}
 
-const button$ = Observable.merge(
+const buttons$ = Observable.merge(
   Observable.fromEvent(startBtn, 'click').mapTo(start),
-  Observable.fromEvent(stopBtn, 'click').mapTo(stop),
-  Observable.fromEvent(splitBtn, 'click').mapTo(split),
-  Observable.fromEvent(resetBtn, 'click').mapTo(reset),
-  timer.mapTo(incr)
+  Observable.fromEvent(stopBtn, 'click').mapTo(start),
+  Observable.fromEvent(splitBtn, 'click').mapTo(start),
+  Observable.fromEvent(resetBtn, 'click').mapTo(start)
 )
 
-button$
-  .scan((acc, update) => update(acc), counter)
-  .subscribe(function(counter) {
-    if (counter.state == true) {
-      display.innerHTML = counter.value;
-    } else {
-      display.innerHTML = 0;
+const startBtn$ = Observable.fromEvent(startBtn, 'click');
+
+startBtn$.map(start).subscribe();
+
+const timer$ = Observable.interval(1)
+  .map(
+    function incr() {
+      console.log(counter.state);
+      if (counter.state === true)
+        counter.ms++;
+
+        if(counter.ms >= 1000) {
+          counter.ms = 0;
+          counter.s++;
+        }
+
+        if(counter.s >= 60) {
+          counter.s = 0;
+          counter.m++;
+        }
     }
-  });
+  );
+
+timer$.subscribe(
+  x => {
+    console.log(counter.m + ':' + counter.s + ':' + counter.ms);
+  }
+);
