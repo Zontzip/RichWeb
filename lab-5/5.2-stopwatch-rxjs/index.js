@@ -57,6 +57,8 @@ const timer$ = Observable.interval(10)
 
       switch(counter.state) {
         case 'ACTIVE':
+          splitBtn.disabled = false;
+
           counter.ms++;
 
           if(counter.ms >= 100) {
@@ -68,6 +70,10 @@ const timer$ = Observable.interval(10)
             counter.s = 0;
             counter.m++;
           }
+          break;
+        case 'INACTIVE':
+          splitBtn.disabled = true;
+          break;
       }
     }
   );
@@ -75,3 +81,37 @@ const timer$ = Observable.interval(10)
 timer$.subscribe(function() {
   display.value = counterStr();
 });
+
+var canvas = document.getElementById('canvas');
+var ctx = canvas.getContext('2d');
+setInterval(showClock, 10);
+
+function showClock() {
+    var angle;
+    var secHandLength = 60;
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    drawClock();
+
+    function drawClock() {
+      ctx.beginPath();
+      ctx.arc(canvas.width / 2, canvas.height / 2, secHandLength + 10, 0, Math.PI * 2);
+      ctx.strokeStyle = 'grey';
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.arc(canvas.width / 2, canvas.height / 2, secHandLength + 7, 0, Math.PI * 2);
+      ctx.strokeStyle = 'grey';
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.arc(canvas.width / 2, canvas.height / 2, 2, 0, Math.PI * 2);
+      ctx.lineWidth = 2;
+      ctx.fillStyle = 'black';
+      ctx.strokeStyle = 'black';
+      ctx.stroke();
+    }
+
+
+}
