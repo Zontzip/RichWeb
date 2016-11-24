@@ -8,13 +8,17 @@
 </head>
 <body>
   <div id="stopwatch">
-    <input type="text" id="display" disabled placeholder="0:0:000"></input>
+    <input type="text" id="display" disabled placeholder="0:0:00"></input>
 
-    <div id="buttons">
+    <div id="flex-container">
       <button class="flex-item" id="start">Start</button>
       <button class="flex-item" id="stop">Stop</button>
       <button class="flex-item" id="split">Split</button>
       <button class="flex-item" id="reset">Reset</button>
+    </div>
+    
+    <div id="split-container">
+      <ul id="ul-splits"></ul>
     </div>
   </div>
 
