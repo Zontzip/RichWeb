@@ -1,5 +1,5 @@
 body {
-	font-family: Verdana;
+	font-family: Verdana, Sans-serif;
 	max-width: 900px;
   	margin: 0 auto;
 }
@@ -8,7 +8,7 @@ header {
 }
 ul {
 	list-style: none;
-	margin: 0; 
+	margin: 0;
 	padding: 0;
 }
 ul li {
