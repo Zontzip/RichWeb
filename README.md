@@ -1,2 +1,2 @@
 # RichWeb
-Rich Web Application Labs
+Rich Web Applications
